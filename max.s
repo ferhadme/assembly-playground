@@ -1,6 +1,8 @@
+# Finding maximum number from given sequence
+
 .section .data
 
-data_items:
+sequence:
   .long 3, 10, 2, 12, 40, 8, 7, 6, 5, 23
 
 .section .text
@@ -9,13 +11,13 @@ data_items:
 _start:
 
 movl $0, %edi
-movl data_items(,%edi,4), %ebx
+movl sequence(,%edi,4), %ebx
 
 loop_start:
   incl %edi
   cmpl $10, %edi
   je loop_end
-  movl data_items(,%edi,4), %eax
+  movl sequence(,%edi,4), %eax
   cmpl %ebx, %eax
   jle loop_start
 
