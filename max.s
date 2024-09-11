@@ -1,4 +1,5 @@
 # Finding maximum number from given sequence
+# Output is written to exit status of program ($?)
 
 .section .data
 
