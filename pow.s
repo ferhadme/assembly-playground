@@ -1,4 +1,5 @@
 # Program that sums two different results of power function
+# 5^2 + 3^3 = 25 + 27 = 52
 
 .section .data
 
@@ -7,11 +8,22 @@
 .globl _start
 _start:
 
-  pushl $0
+  pushl $2
   pushl $5
   call power
   add $8, %esp
+
+  pushl %eax
+
+  pushl $3
+  pushl $3
+  call power
+  add $8, %esp
+
   movl %eax, %ebx
+  popl %eax
+  addl %eax, %ebx
+
   movl $1, %eax
   int $0x80
 
@@ -49,3 +61,4 @@ loop_end:
   movl %ebp, %esp
   popl %ebp
   ret
+
