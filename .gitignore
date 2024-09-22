@@ -1,3 +1,2 @@
-*.out
-*.o
-*.swp
+bin
+build
