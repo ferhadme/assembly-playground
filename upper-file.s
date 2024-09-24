@@ -7,6 +7,7 @@
 .lcomm buffer_data, buffer_size
 
 .section .data
+# https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit
 .equ LINUX_INT, 0x80
 .equ EXIT_SYSCALL, 1
 .equ READ_SYSCALL, 3
@@ -34,10 +35,8 @@ movl $O_RDONLY, %ecx
 movl $0666, %edx
 int $LINUX_INT
 
-
 # -4(%ebp) = Input file descriptor
 movl %eax, -4(%ebp)
-
 
 open_output:
 movl $OPEN_SYSCALL, %eax
@@ -90,10 +89,6 @@ movl $0, %ebp
 int $LINUX_INT
 
 # (arg1: buffer address, arg2: buffer size)
-.equ AL, 'a'
-.equ AU, 'A'
-.equ ZL, 'z'
-.equ DIFF, 'A' - 'a'
 .type make_buffer_uppercase, @function
 make_buffer_uppercase:
 pushl %ebp
@@ -113,14 +108,13 @@ cmpl %edi, %ebx
 je completed
 
 movb (%eax, %edi, 1), %cl
-cmpb $AL, %cl
+cmpb $97, %cl
 jl copying
-cmpb $ZL, %cl
+cmpb $122, %cl
 jg copying
 
-#subb $AL, %cl
-#addb $AU, %cl
-addb $DIFF, %cl
+subb $97, %cl
+addb $65, %cl
 
 copying:
 movb %cl, (%eax, %edi, 1)
