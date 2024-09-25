@@ -1,8 +1,4 @@
 List of programs:
-  * Finding maximum in the sequence of integers
-  * Finding sum of elements in a sequence
-  * Function calculates power of integer
-  * Function calculates power of integer recursively
-  * Function calcualtes square of given integer
-  * Finding sum of 3 different max numbers of 3 different lists which is found by using max function
-  * Converting input file characters to output file with uppercase characters
+  * Basics
+  * Recursion
+  * IO
