@@ -1,4 +1,11 @@
 List of programs:
   * Basics
+    - Finding maximum number in the list
+    - Finding power of the given number
+    - Finding square of the given number
+    - Finding sum of maximums of 3 different lists
+    - Finding sum of elements of the given list
   * Recursion
+    - Recursive version of power function
   * IO
+    - Converting input file to output file by making all characters uppercase
